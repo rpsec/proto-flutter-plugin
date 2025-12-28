@@ -140,13 +140,8 @@ pub fn download_prebuilt(
         }
     });
 
-    let (checksum, download_url) = match release_info {
-        Some((sha, archive)) => (Some(sha), archive),
-        None => (
-            None,
-            format!("{base_url}/{channel}/{os}/flutter_{os}_{arch}{version_v_prefix}{version_as_string}-{channel}.zip"),
-        ),
-    };
+    let download_url =
+        format!("{base_url}/{channel}/{os}/flutter_{os}_{arch}{version_v_prefix}{version_as_string}-{channel}.tar.xz");
 
     Ok(Json(DownloadPrebuiltOutput {
         download_url,
