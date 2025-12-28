@@ -128,13 +128,13 @@ pub fn download_prebuilt(
         {
             if arch == "arm64_" {
                 if item.arch == Some("arm64".into()) {
-                    return Some((item.sha256.clone(), item.archive.clone()));
+                    Some((item.sha256.clone(), item.archive.clone()))
                 } else {
-                    return None;
+                    None
                 }
+            } else {
+                Some((item.sha256.clone(), item.archive.clone()))
             }
-
-            Some((item.sha256.clone(), item.archive.clone()))
         } else {
             None
         }
