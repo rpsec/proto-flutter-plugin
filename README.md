@@ -2,45 +2,41 @@
 
 [Flutter](https://flutter.dev/) WASM plugin for [proto](https://github.com/moonrepo/proto).
 
-## Installation
+## Documentation
 
-Add the following to `.prototools`.
+- [Setup & Configuration](./docs/setup.md)
+- [Development Guide](./docs/development.md)
 
-```toml
-[plugins]
-flutter = "github://KonstantinKai/proto-flutter-plugin"
-```
+## Overview
 
-Or
+This plugin allows you to manage Flutter SDK versions using `proto`.
 
-```sh
-proto plugin add flutter github://KonstantinKai/proto-flutter-plugin
-```
+### Features
 
-## Configuration
+- **Version Management**: Install specific versions of Flutter.
+- **Aliases**: Supports `stable`, `beta`, and `latest` aliases.
+- **Version Detection**: Detects required Flutter version from `pubspec.yaml`.
+- **Pre-built Binaries**: Downloads pre-built Flutter SDKs from Google's infrastructure (or a configured mirror).
 
-Flutter plugin can be configured with a `.prototools` file.
+### Limitations
 
-- `base-url` (string) - The base URL to download Flutter SDK archives and version fetching.
+- **Channel Switching**: The plugin does not support the native `flutter channel` command. Use `proto` to install different channel versions (e.g., `proto install flutter beta`).
+- **Self-Upgrades**: `flutter upgrade` and `flutter downgrade` are not supported. Version control is fully managed by `proto`.
+- **Platform Support**: While it aims to support major platforms, there are known issues with archive formats on Windows in the current implementation (forces `.tar.xz`).
 
-```toml
-[tools.flutter]
-base-url = "https://storage.googleapis.com/flutter_infra_release/releases" # default
-```
+## Quick Start
 
-## Notes
+1.  **Install plugin**:
+    ```sh
+    proto plugin add flutter github://KonstantinKai/proto-flutter-plugin
+    ```
 
-- Flutter plugin supports version aliases like `stable`, `beta`, `latest`
-- Flutter plugin does not support built-in channel switching feature, `upgrade` and `downgrade` commands. It provides only versions for stable and beta channels with Non zero MAJOR part and respects arch and os compatibility.
+2.  **Install Flutter**:
+    ```sh
+    proto install flutter stable
+    ```
 
-## Hooks
-
-Flutter plugin does not support hooks.
-
-## Contributing
-
-Build the plugin:
-
-```shell
-cargo build --target wasm32-wasip1
-```
+3.  **Use Flutter**:
+    ```sh
+    flutter --version
+    ```
