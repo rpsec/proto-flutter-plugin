@@ -122,26 +122,31 @@ pub fn download_prebuilt(
 
     // TODO: Not ideal, but this is the only solution at the moment
     let response = fetch_dist(&env)?;
-    let checksum = response.releases.iter().find_map(|item| {
+    let release_info = response.releases.iter().find_map(|item| {
         if item.version == format!("{}{}", version_v_prefix, version_as_string)
             && item.channel == channel
         {
             if arch == "arm64_" {
                 if item.arch == Some("arm64".into()) {
-                    return Some(item.sha256.clone());
+                    return Some((item.sha256.clone(), item.archive.clone()));
                 } else {
                     return None;
                 }
             }
 
-            Some(item.sha256.clone())
+            Some((item.sha256.clone(), item.archive.clone()))
         } else {
             None
         }
     });
 
-    let download_url =
-        format!("{base_url}/{channel}/{os}/flutter_{os}_{arch}{version_v_prefix}{version_as_string}-{channel}.tar.xz");
+    let (checksum, download_url) = match release_info {
+        Some((chk, arc)) => (Some(chk), format!("{base_url}/{arc}")),
+        None => (
+            None,
+            format!("{base_url}/{channel}/{os}/flutter_{os}_{arch}{version_v_prefix}{version_as_string}-{channel}.tar.xz"),
+        ),
+    };
 
     Ok(Json(DownloadPrebuiltOutput {
         download_url,
