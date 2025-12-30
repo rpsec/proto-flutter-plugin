@@ -25,9 +25,6 @@ Integration tests using `proto_pdk_test_utils` often require a mock proto enviro
 
 ## Known Issues / Context
 
-- **File Extensions**: The plugin currently constructs download URLs assuming `.tar.xz` for all platforms in `src/proto.rs`.
-  - *Context*: Flutter SDK archives typically use `.zip` for Windows and macOS, and `.tar.xz` for Linux.
-  - The `fetch_dist` function retrieves a JSON with an `archive` field that contains the correct filename, but `download_prebuilt` ignores it and reconstructs the URL.
 - **Upgrades**: The plugin does not support `flutter upgrade`. Version management should be done via `proto`.
 
 ## Code Style
