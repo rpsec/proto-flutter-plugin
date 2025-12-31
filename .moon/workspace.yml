@@ -1,0 +1,28 @@
+# moon workspace configuration
+# https://moonrepo.dev/docs/config/workspace
+
+$schema: 'https://moonrepo.dev/schemas/workspace.json'
+
+# Extend configuration from the .moon directory
+extends: []
+
+# Project discovery and organization
+projects:
+  # Use the repository root as the project
+  - '.'
+
+# Version control system configuration
+vcs:
+  manager: 'git'
+  defaultBranch: 'main'
+
+# Runner configuration for task execution
+runner:
+  # Cache task outputs
+  cacheLifetime: '7 days'
+  # Run tasks in a specific order
+  dependencyOrder: 'topological'
+
+# Notification configuration
+notifier:
+  webhookUrl: null
