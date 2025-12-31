@@ -1,0 +1,4 @@
+# proto tools configuration
+# Defines the versions of tools managed by proto
+
+rust = "1.92.0"

@@ -1,0 +1,17 @@
+# moon toolchain configuration
+# https://moonrepo.dev/docs/config/toolchain
+
+$schema: 'https://moonrepo.dev/schemas/toolchain.json'
+
+# Enable proto for managing language toolchains
+# proto will manage Rust installations
+rust:
+  # Use proto to manage Rust
+  # This will install Rust using proto when needed
+  version: '1.92.0'
+  
+  # Sync proto's Rust version with .prototools or proto.toml
+  syncToolchainConfig: true
+  
+  # Plugin configurations for proto
+  plugin: 'rust'

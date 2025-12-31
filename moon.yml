@@ -1,0 +1,86 @@
+# moon project configuration
+# https://moonrepo.dev/docs/config/project
+
+$schema: 'https://moonrepo.dev/schemas/project.json'
+
+# Project metadata
+language: 'rust'
+type: 'library'
+
+# File groups for task inputs
+fileGroups:
+  sources:
+    - 'src/**/*'
+  tests:
+    - 'tests/**/*'
+  configs:
+    - 'Cargo.toml'
+    - 'Cargo.lock'
+
+# Define tasks
+tasks:
+  # Format code using cargo fmt
+  format:
+    command: 'cargo fmt --all'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - 'Cargo.toml'
+    outputs: []
+
+  # Check formatting
+  format-check:
+    command: 'cargo fmt --all -- --check'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - 'Cargo.toml'
+    outputs: []
+
+  # Lint code using cargo clippy
+  lint:
+    command: 'cargo clippy --all-targets --all-features -- -D warnings'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - '@globs(configs)'
+    outputs: []
+
+  # Build the project for development
+  build:
+    command: 'cargo build'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(configs)'
+    outputs:
+      - 'target/debug/**/*'
+
+  # Build the WASM plugin
+  build-wasm:
+    command: 'cargo build --target wasm32-wasip1 --release'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(configs)'
+    outputs:
+      - 'target/wasm32-wasip1/release/*.wasm'
+
+  # Run tests
+  test:
+    command: 'cargo test --all-features'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - '@globs(configs)'
+    outputs: []
+
+  # Run all checks (format-check, lint, test)
+  check:
+    deps:
+      - 'format-check'
+      - 'lint'
+      - 'test'
+
+  # Clean build artifacts
+  clean:
+    command: 'cargo clean'
+    outputs: []
