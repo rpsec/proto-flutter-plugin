@@ -40,3 +40,26 @@ This plugin allows you to manage Flutter SDK versions using `proto`.
     ```sh
     flutter --version
     ```
+
+## Development
+
+This repository is set up as a [moon](https://moonrepo.dev) repository for task management.
+
+### Available Tasks
+
+- **Format code**: `moon run :format`
+- **Check formatting**: `moon run :format-check`
+- **Lint code**: `moon run :lint`
+- **Build (dev)**: `moon run :build`
+- **Build WASM**: `moon run :build-wasm`
+- **Run tests**: `moon run :test`
+- **Run all checks**: `moon run :check` (format-check + lint + test)
+- **Clean**: `moon run :clean`
+
+### Requirements
+
+- [proto](https://moonrepo.dev/proto) - Tool version manager
+- [moon](https://moonrepo.dev) - Task runner and monorepo management
+- Rust toolchain (managed via proto, specified in `.prototools`)
+
+The project uses proto to manage the Rust toolchain version automatically.

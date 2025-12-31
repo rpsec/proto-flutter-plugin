@@ -7,6 +7,9 @@ This file contains instructions and context for AI agents (and humans) working o
 - `src/`: Source code for the Rust plugin.
 - `build-wasm.sh`: Script to build the WASM plugin.
 - `Cargo.toml`: Rust project configuration.
+- `.moon/`: moon repository configuration directory.
+- `moon.yml`: Project-level moon task definitions.
+- `.prototools`: Proto tool versions configuration.
 
 ## Build Requirements
 
@@ -17,6 +20,23 @@ The project compiles to WASM using `cargo`. The `build-wasm.sh` script performs 
 - `wasm-strip` from [WABT](https://github.com/WebAssembly/wabt).
 
 The script assumes these tools are located in `~/Dev/web-assembly-binaryen/bin/` and `~/Dev/web-assembly-wabt/bin/`. You may need to adjust the script or your environment to match these paths, or look for them in the system path.
+
+### moon Tasks
+
+This repository is set up as a moon repository with the following tasks:
+
+- `moon run :format` - Format code using cargo fmt
+- `moon run :format-check` - Check code formatting
+- `moon run :lint` - Lint code using cargo clippy
+- `moon run :build` - Build the project for development
+- `moon run :build-wasm` - Build the WASM plugin (requires wasm32-wasip1 target)
+- `moon run :test` - Run all tests
+- `moon run :check` - Run format-check, lint, and test
+- `moon run :clean` - Clean build artifacts
+
+### proto Integration
+
+The repository uses proto to manage Rust toolchain versions. The Rust version is specified in `.prototools` and is managed by moon through `.moon/toolchain.yml`.
 
 ## Testing
 
@@ -29,5 +49,5 @@ Integration tests using `proto_pdk_test_utils` often require a mock proto enviro
 
 ## Code Style
 
-- Follow standard Rust formatting (`cargo fmt`).
-- Ensure `cargo clippy` passes.
+- Follow standard Rust formatting (`cargo fmt` or `moon run :format`).
+- Ensure `cargo clippy` passes (`moon run :lint`).
