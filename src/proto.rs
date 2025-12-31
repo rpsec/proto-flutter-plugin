@@ -122,30 +122,37 @@ pub fn download_prebuilt(
 
     // TODO: Not ideal, but this is the only solution at the moment
     let response = fetch_dist(&env)?;
-    let release_info = response.releases.iter().find_map(|item| {
-        if item.version == format!("{}{}", version_v_prefix, version_as_string)
-            && item.channel == channel
-        {
-            if arch == "arm64_" {
-                if item.arch == Some("arm64".into()) {
-                    return Some((item.sha256.clone(), item.archive.clone()));
-                } else {
-                    return None;
+    let (checksum, archive) = response
+        .releases
+        .iter()
+        .find_map(|item| {
+            if item.version == format!("{}{}", version_v_prefix, version_as_string)
+                && item.channel == channel
+            {
+                if arch == "arm64_" {
+                    if item.arch == Some("arm64".into()) {
+                        return Some((Some(item.sha256.clone()), Some(item.archive.clone())));
+                    } else {
+                        return None;
+                    }
                 }
+
+                Some((Some(item.sha256.clone()), Some(item.archive.clone())))
+            } else {
+                None
             }
+        })
+        .unwrap_or((None, None));
 
-            Some((item.sha256.clone(), item.archive.clone()))
+    let download_url = if let Some(archive) = archive {
+        format!("{base_url}/{archive}")
+    } else {
+        let ext = if env.os == HostOS::Linux {
+            "tar.xz"
         } else {
-            None
-        }
-    });
-
-    let (checksum, download_url) = match release_info {
-        Some((chk, arc)) => (Some(chk), format!("{base_url}/{arc}")),
-        None => (
-            None,
-            format!("{base_url}/{channel}/{os}/flutter_{os}_{arch}{version_v_prefix}{version_as_string}-{channel}.tar.xz"),
-        ),
+            "zip"
+        };
+        format!("{base_url}/{channel}/{os}/flutter_{os}_{arch}{version_v_prefix}{version_as_string}-{channel}.{ext}")
     };
 
     Ok(Json(DownloadPrebuiltOutput {
