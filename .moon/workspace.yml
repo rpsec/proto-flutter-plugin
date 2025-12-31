@@ -15,6 +15,11 @@ projects:
 vcs:
   manager: 'git'
   defaultBranch: 'main'
+  # VCS hooks - run tasks before push
+  hooks:
+    pre-push:
+      - ':lint'
+      - ':test'
 
 # Runner configuration for task execution
 runner:

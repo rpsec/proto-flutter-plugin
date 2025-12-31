@@ -63,3 +63,17 @@ This repository is set up as a [moon](https://moonrepo.dev) repository for task 
 - Rust toolchain (managed via proto, specified in `.prototools`)
 
 The project uses proto to manage the Rust toolchain version automatically.
+
+### VCS Hooks
+
+The repository is configured with a **pre-push hook** that automatically runs linting and tests before pushing to ensure code quality. To set up the hook, run:
+
+```sh
+moon sync hooks
+```
+
+This will install a git pre-push hook that runs:
+- `moon run :lint` - Lint the code with clippy
+- `moon run :test` - Run all tests
+
+The push will be blocked if either check fails.

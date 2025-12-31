@@ -38,6 +38,15 @@ This repository is set up as a moon repository with the following tasks:
 
 The repository uses proto to manage Rust toolchain versions. The Rust version is specified in `.prototools` and is managed by moon through `.moon/toolchain.yml`.
 
+### VCS Hooks
+
+A pre-push hook is configured to run linting and tests automatically before pushing. Install it with:
+```sh
+moon sync hooks
+```
+
+This ensures code quality by running `:lint` and `:test` tasks before each push.
+
 ## Testing
 
 Integration tests using `proto_pdk_test_utils` often require a mock proto environment.
