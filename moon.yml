@@ -55,7 +55,7 @@ tasks:
     outputs:
       - 'target/debug/**/*'
 
-  # Build the WASM plugin
+  # Build the WASM plugin (raw compile, use build-wasm.sh for optimized release)
   build-wasm:
     command: 'cargo build --target wasm32-wasip1 --release'
     inputs:
