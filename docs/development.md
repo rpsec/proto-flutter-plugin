@@ -12,17 +12,33 @@ This guide covers how to build and test the Flutter proto plugin.
 - **Binaryen**: Required for `wasm-opt`. Download from [Binaryen releases](https://github.com/WebAssembly/binaryen/releases).
 - **WABT**: Required for `wasm-strip`. Download from [WABT releases](https://github.com/WebAssembly/wabt/releases).
 
-**Note on Paths**: The `build-wasm.sh` script currently expects `wasm-opt` and `wasm-strip` to be located in specific directories (`~/Dev/web-assembly-binaryen/bin/` and `~/Dev/web-assembly-wabt/bin/`). You may need to edit the script to point to your installation paths.
-
 ## Building
 
-Run the build script to compile, optimize, and strip the WASM binary:
+### Standard Compile (Dev)
+
+To simply compile the WASM binary for development or testing compilation, use moon:
+
+```sh
+moon run :build-wasm
+```
+
+This will produce a binary at `target/wasm32-wasip1/release/flutter_tool.wasm`. Note that this binary is not optimized or stripped.
+
+### Release Build
+
+To produce the final optimized artifact, run the build script:
 
 ```sh
 bash build-wasm.sh flutter_tool
 ```
 
 The output WASM file will be located in `target/wasm32-wasip1/flutter_tool.wasm`.
+
+**⚠️ Important Note on Paths**: The `build-wasm.sh` script currently expects `wasm-opt` and `wasm-strip` to be located in specific directories:
+- `~/Dev/web-assembly-binaryen/bin/`
+- `~/Dev/web-assembly-wabt/bin/`
+
+You **must** edit the script to point to your installation paths or ensure your environment matches these expectations before running the script.
 
 ## Testing
 
@@ -31,6 +47,8 @@ The project uses `proto_pdk_test_utils` for integration testing.
 ### Running Tests
 
 ```sh
+moon run :test
+# or
 cargo test
 ```
 
@@ -48,5 +66,5 @@ chmod +x ~/.proto/bin/proto-shim
 
 1.  Update the version in `Cargo.toml`.
 2.  Update `CHANGELOG.md`.
-3.  Build the WASM binary.
+3.  Build the optimized WASM binary using `build-wasm.sh`.
 4.  Commit and push changes.
