@@ -9,6 +9,7 @@
 
 - [Setup & Configuration](./docs/setup.md)
 - [Development Guide](./docs/development.md)
+- [Contribution Guide](./CONTRIBUTING.md)
 
 ## Overview
 
@@ -25,7 +26,6 @@ This plugin allows you to manage Flutter SDK versions using `proto`.
 
 - **Channel Switching**: The plugin does not support the native `flutter channel` command. Use `proto` to install different channel versions (e.g., `proto install flutter beta`).
 - **Self-Upgrades**: `flutter upgrade` and `flutter downgrade` are not supported. Version control is fully managed by `proto`.
-- **Platform Support**: While it aims to support major platforms, there are known issues with archive formats on Windows in the current implementation (forces `.tar.xz`).
 
 ## Quick Start
 
