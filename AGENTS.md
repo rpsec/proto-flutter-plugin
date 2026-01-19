@@ -5,11 +5,19 @@ This file contains instructions and context for AI agents (and humans) working o
 ## Project Structure
 
 - `src/`: Source code for the Rust plugin.
+- `docs/`: Additional documentation.
 - `build-wasm.sh`: Script to build the WASM plugin.
 - `Cargo.toml`: Rust project configuration.
 - `.moon/`: moon repository configuration directory.
 - `moon.yml`: Project-level moon task definitions.
 - `.prototools`: Proto tool versions configuration.
+- `CONTRIBUTING.md`: Contribution guidelines.
+
+## Documentation
+
+Agents should refer to the `docs/` directory for detailed information:
+- `docs/setup.md`: Configuration and installation.
+- `docs/development.md`: Building, testing, and release process.
 
 ## Build Requirements
 
