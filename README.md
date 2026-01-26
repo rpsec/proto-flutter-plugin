@@ -9,6 +9,7 @@
 
 - [Setup & Configuration](./docs/setup.md)
 - [Development Guide](./docs/development.md)
+- [Contributing](./CONTRIBUTING.md)
 
 ## Overview
 
