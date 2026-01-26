@@ -16,13 +16,25 @@ This guide covers how to build and test the Flutter proto plugin.
 
 ## Building
 
-Run the build script to compile, optimize, and strip the WASM binary:
+### Development Build
+
+For routine development and testing, you can use `moon` to build the WASM binary. This runs `cargo build` but does not perform the extra optimization steps (like `wasm-opt` and `wasm-strip`).
+
+```sh
+moon run :build-wasm
+```
+
+### Release Build (Optimized)
+
+To create an optimized and stripped binary for release, run the `build-wasm.sh` script:
 
 ```sh
 bash build-wasm.sh flutter_tool
 ```
 
 The output WASM file will be located in `target/wasm32-wasip1/flutter_tool.wasm`.
+
+> **Warning:** As mentioned above, `build-wasm.sh` has hardcoded paths. Ensure you have adjusted them or set up your environment to match.
 
 ## Testing
 

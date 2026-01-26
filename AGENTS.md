@@ -13,13 +13,26 @@ This file contains instructions and context for AI agents (and humans) working o
 
 ## Build Requirements
 
-The project compiles to WASM using `cargo`. The `build-wasm.sh` script performs additional optimization steps that require external tools:
+The project compiles to WASM using `cargo`.
+
+### Development Build
+For development purposes (running tests, quick iteration), use the moon task:
+- `moon run :build-wasm` - Builds the WASM plugin using `cargo build --target wasm32-wasip1 --release`.
+
+### Release Build (Optimized)
+For release, the `build-wasm.sh` script performs additional optimization steps that require external tools:
 
 - `cargo` with `wasm32-wasip1` target.
 - `wasm-opt` from [Binaryen](https://github.com/WebAssembly/binaryen).
 - `wasm-strip` from [WABT](https://github.com/WebAssembly/wabt).
 
-The script assumes these tools are located in `~/Dev/web-assembly-binaryen/bin/` and `~/Dev/web-assembly-wabt/bin/`. You may need to adjust the script or your environment to match these paths, or look for them in the system path.
+**Important:** The `build-wasm.sh` script currently has **hardcoded paths** for `wasm-opt` and `wasm-strip`:
+- `~/Dev/web-assembly-binaryen/bin/wasm-opt`
+- `~/Dev/web-assembly-wabt/bin/wasm-strip`
+
+If you need to run this script, you must either:
+1.  Update the script to match your environment.
+2.  Symlink your tools to these locations.
 
 ### moon Tasks
 
@@ -28,8 +41,8 @@ This repository is set up as a moon repository with the following tasks:
 - `moon run :format` - Format code using cargo fmt
 - `moon run :format-check` - Check code formatting
 - `moon run :lint` - Lint code using cargo clippy
-- `moon run :build` - Build the project for development
-- `moon run :build-wasm` - Build the WASM plugin (requires wasm32-wasip1 target)
+- `moon run :build` - Build the project for development (standard target)
+- `moon run :build-wasm` - Build the WASM plugin (wasm32-wasip1 target)
 - `moon run :test` - Run all tests
 - `moon run :check` - Run format-check, lint, and test
 - `moon run :clean` - Clean build artifacts
