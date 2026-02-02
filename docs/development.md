@@ -12,11 +12,27 @@ This guide covers how to build and test the Flutter proto plugin.
 - **Binaryen**: Required for `wasm-opt`. Download from [Binaryen releases](https://github.com/WebAssembly/binaryen/releases).
 - **WABT**: Required for `wasm-strip`. Download from [WABT releases](https://github.com/WebAssembly/wabt/releases).
 
-**Note on Paths**: The `build-wasm.sh` script currently expects `wasm-opt` and `wasm-strip` to be located in specific directories (`~/Dev/web-assembly-binaryen/bin/` and `~/Dev/web-assembly-wabt/bin/`). You may need to edit the script to point to your installation paths.
+**Important Note on Paths**: The `build-wasm.sh` script relies on `wasm-opt` and `wasm-strip` being available at **hardcoded paths**:
+- `~/Dev/web-assembly-binaryen/bin/wasm-opt`
+- `~/Dev/web-assembly-wabt/bin/wasm-strip`
+
+If your tools are installed elsewhere (or in your system PATH), **you must edit `build-wasm.sh`** to match your environment before running it.
 
 ## Building
 
-Run the build script to compile, optimize, and strip the WASM binary:
+### Development Build
+
+For local development and testing, you can use `moon` to build the WASM binary without optimizations. This does not require Binaryen or WABT.
+
+```sh
+moon run :build-wasm
+```
+
+The artifact will be at `target/wasm32-wasip1/release/flutter_tool.wasm`.
+
+### Release Build
+
+To create a production-ready, optimized, and stripped WASM binary, use the provided script:
 
 ```sh
 bash build-wasm.sh flutter_tool
