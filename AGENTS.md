@@ -5,7 +5,9 @@ This file contains instructions and context for AI agents (and humans) working o
 ## Project Structure
 
 - `src/`: Source code for the Rust plugin.
-- `build-wasm.sh`: Script to build the WASM plugin.
+- `docs/`: Documentation files.
+- `CONTRIBUTING.md`: Contribution guidelines.
+- `build-wasm.sh`: Script to build the optimized WASM plugin.
 - `Cargo.toml`: Rust project configuration.
 - `.moon/`: moon repository configuration directory.
 - `moon.yml`: Project-level moon task definitions.
@@ -19,7 +21,7 @@ The project compiles to WASM using `cargo`. The `build-wasm.sh` script performs 
 - `wasm-opt` from [Binaryen](https://github.com/WebAssembly/binaryen).
 - `wasm-strip` from [WABT](https://github.com/WebAssembly/wabt).
 
-The script assumes these tools are located in `~/Dev/web-assembly-binaryen/bin/` and `~/Dev/web-assembly-wabt/bin/`. You may need to adjust the script or your environment to match these paths, or look for them in the system path.
+The script **hardcodes** these tool paths to `~/Dev/web-assembly-binaryen/bin/` and `~/Dev/web-assembly-wabt/bin/`. If you are asked to fix build issues related to these tools, checking/updating these paths in `build-wasm.sh` is a primary step.
 
 ### moon Tasks
 

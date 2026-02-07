@@ -9,6 +9,7 @@
 
 - [Setup & Configuration](./docs/setup.md)
 - [Development Guide](./docs/development.md)
+- [Contributing](./CONTRIBUTING.md)
 
 ## Overview
 
@@ -54,7 +55,7 @@ This repository is set up as a [moon](https://moonrepo.dev) repository for task 
 - **Check formatting**: `moon run :format-check`
 - **Lint code**: `moon run :lint`
 - **Build (dev)**: `moon run :build`
-- **Build WASM**: `moon run :build-wasm`
+- **Build WASM**: `moon run :build-wasm` (Debug/Release build, no optimization)
 - **Run tests**: `moon run :test`
 - **Run all checks**: `moon run :check` (format-check + lint + test)
 - **Clean**: `moon run :clean`
@@ -66,6 +67,12 @@ This repository is set up as a [moon](https://moonrepo.dev) repository for task 
 - Rust toolchain (managed via proto, specified in `.prototools`)
 
 The project uses proto to manage the Rust toolchain version automatically.
+
+For creating an optimized release build (stripped and optimized WASM), use the provided script (requires `wasm-opt` and `wasm-strip`):
+
+```sh
+./build-wasm.sh flutter_tool
+```
 
 ### VCS Hooks
 
