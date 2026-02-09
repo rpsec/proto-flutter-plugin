@@ -60,6 +60,19 @@ touch ~/.proto/bin/proto-shim
 chmod +x ~/.proto/bin/proto-shim
 ```
 
+## Architecture
+
+### Release Fetching Logic
+
+The plugin fetches Flutter release metadata from Google's infrastructure to determine available versions and download URLs.
+
+1.  **OS Detection**: The plugin detects the host operating system (Linux, macOS, Windows).
+2.  **Metadata Fetching**: It fetches `releases_{os}.json` from the base URL (default: `https://storage.googleapis.com/flutter_infra_release/releases`).
+    -   Example: `https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json`
+3.  **Archive Selection**: It parses the JSON to find the requested version (or `latest`/`stable`/`beta`).
+    -   It uses the `archive` path specified in the JSON metadata.
+    -   This ensures the correct archive format (e.g., `.zip` for Windows/macOS, `.tar.xz` for Linux) and architecture (e.g., `x64` vs `arm64`) is used.
+
 ## Release Process
 
 1.  Update the version in `Cargo.toml`.

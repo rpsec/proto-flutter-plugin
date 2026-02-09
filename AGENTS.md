@@ -49,6 +49,24 @@ moon sync hooks
 
 This ensures code quality by running `:lint` and `:test` tasks before each push.
 
+## Configuration
+
+The plugin supports configuration via `.prototools`:
+
+- **`base-url`**: Allows overriding the default Flutter download URL (e.g., for mirrors).
+  ```toml
+  [tools.flutter]
+  base-url = "https://your-mirror.example.com"
+  ```
+
+## Platform Support
+
+The plugin supports the following platforms and architectures:
+
+- **Linux**: x64 (uses `.tar.xz`)
+- **macOS**: x64, Arm64 (uses `.zip`)
+- **Windows**: x64 (uses `.zip`)
+
 ## Testing
 
 Integration tests using `proto_pdk_test_utils` often require a mock proto environment.
@@ -57,6 +75,8 @@ Integration tests using `proto_pdk_test_utils` often require a mock proto enviro
 ## Known Issues / Context
 
 - **Upgrades**: The plugin does not support `flutter upgrade`. Version management should be done via `proto`.
+- **Archive Formats**: The plugin detects the OS and fetches the corresponding `releases_{os}.json` metadata to determine the archive format (`.zip` or `.tar.xz`).
+- **Channel Switching**: `flutter channel` is not supported. Use `proto install flutter <channel>` instead.
 
 ## Code Style
 
