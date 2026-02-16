@@ -5,6 +5,7 @@ This file contains instructions and context for AI agents (and humans) working o
 ## Project Structure
 
 - `src/`: Source code for the Rust plugin.
+- `tests/`: Integration tests.
 - `docs/`: Documentation files.
 - `CONTRIBUTING.md`: Contribution guidelines.
 - `build-wasm.sh`: Script to build the optimized WASM plugin.
@@ -51,11 +52,16 @@ This ensures code quality by running `:lint` and `:test` tasks before each push.
 
 ## Testing
 
-Integration tests using `proto_pdk_test_utils` often require a mock proto environment.
+The project uses `proto_pdk_test_utils` for integration testing. Key test files are:
+- `tests/download_test.rs`: Verifies that the correct download URLs and archives are constructed for different platforms (Linux, macOS, Windows).
+- `tests/versions_test.rs`: Verifies version resolution logic.
+
+Integration tests often require a mock proto environment.
 - Specifically, `installs_tool` test may fail if `~/.proto/bin/proto-shim` does not exist. A dummy executable should be created there to simulate the shim.
 
 ## Known Issues / Context
 
+- **Requirements**: This plugin requires `proto` v0.47.0 or newer.
 - **Upgrades**: The plugin does not support `flutter upgrade`. Version management should be done via `proto`.
 
 ## Code Style

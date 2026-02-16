@@ -21,12 +21,15 @@ This plugin allows you to manage Flutter SDK versions using `proto`.
 - **Aliases**: Supports `stable`, `beta`, and `latest` aliases.
 - **Version Detection**: Detects required Flutter version from `pubspec.yaml`.
 - **Pre-built Binaries**: Downloads pre-built Flutter SDKs from Google's infrastructure (or a configured mirror).
+- **Platform Support**:
+    - **Linux**: x64
+    - **macOS**: x64, Arm64
+    - **Windows**: x64
 
 ### Limitations
 
 - **Channel Switching**: The plugin does not support the native `flutter channel` command. Use `proto` to install different channel versions (e.g., `proto install flutter beta`).
 - **Self-Upgrades**: `flutter upgrade` and `flutter downgrade` are not supported. Version control is fully managed by `proto`.
-- **Platform Support**: While it aims to support major platforms, there are known issues with archive formats on Windows in the current implementation (forces `.tar.xz`).
 
 ## Quick Start
 

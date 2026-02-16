@@ -4,6 +4,7 @@ This guide covers how to build and test the Flutter proto plugin.
 
 ## Prerequisites
 
+- **proto**: Ensure you have `proto` v0.47.0 or newer installed.
 - **Rust**: Ensure you have a recent version of Rust installed.
 - **WASM Target**: Install the `wasm32-wasip1` target:
   ```sh
