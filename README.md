@@ -32,7 +32,7 @@ This plugin allows you to manage Flutter SDK versions using `proto`.
 
 1.  **Install plugin**:
     ```sh
-    proto plugin add flutter github://KonstantinKai/proto-flutter-plugin
+    proto plugin add flutter github://rpsec/proto-flutter-plugin
     ```
 
 2.  **Install Flutter**:

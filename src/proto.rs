@@ -155,8 +155,11 @@ pub fn download_prebuilt(
         format!("{base_url}/{channel}/{os}/flutter_{os}_{arch}{version_v_prefix}{version_as_string}-{channel}.{ext}")
     };
 
+    let download_name = Some(download_url.split('/').last().unwrap().to_string());
+
     Ok(Json(DownloadPrebuiltOutput {
         download_url,
+        download_name,
         checksum,
         ..DownloadPrebuiltOutput::default()
     }))

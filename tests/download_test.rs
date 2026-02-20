@@ -28,6 +28,7 @@ mod flutter_tool {
                 download_url:
                     "https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_arm64_3.29.0-stable.zip"
                         .into(),
+                download_name: Some("flutter_macos_arm64_3.29.0-stable.zip".into()),
                 checksum: Some("8c3196363c7e79ead5bd2bd657cad6915afdf5b315ca51bfa7e569f490ec3de4".into()),
                 ..Default::default()
             }
@@ -57,6 +58,7 @@ mod flutter_tool {
                 download_url:
                     "https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.29.0-stable.tar.xz"
                         .into(),
+                download_name: Some("flutter_linux_3.29.0-stable.tar.xz".into()),
                 checksum: Some("1f98f3de2931e1d097970e56df691b035f6840aa05be632c4fa2a2298c7cfdd8".into()),
                 ..Default::default()
             },
@@ -86,6 +88,7 @@ mod flutter_tool {
                 download_url:
                     "https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_3.29.0-stable.zip"
                         .into(),
+                download_name: Some("flutter_windows_3.29.0-stable.zip".into()),
                 checksum: Some("0b0080912f856b66843a2061bc73e73ab1ea20b68f068100956da69783b4ca70".into()),
                 ..Default::default()
             },
@@ -115,6 +118,7 @@ mod flutter_tool {
                 download_url:
                     "https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_v1.2.1-stable.zip"
                         .into(),
+                download_name: Some("flutter_macos_v1.2.1-stable.zip".into()),
                 checksum: Some("74ac8397ea29720f116980ea00cf60c34430be1f64489b407f7cf95553babbef".into()),
                 ..Default::default()
             },
@@ -144,6 +148,7 @@ mod flutter_tool {
                 download_url:
                     "https://storage.googleapis.com/flutter_infra_release/releases/beta/macos/flutter_macos_v1.12.13+hotfix.6-beta.zip"
                         .into(),
+                download_name: Some("flutter_macos_v1.12.13+hotfix.6-beta.zip".into()),
                 checksum: Some("05c7064de1f793ed1660422bc8f3fc8cdcaed38618bddbee785413b92d80c364".into()),
                 ..Default::default()
             },

@@ -13,7 +13,7 @@ projects:
 
 # Version control system configuration
 vcs:
-  manager: 'git'
+  client: 'git'
   defaultBranch: 'main'
   # VCS hooks - run tasks before push
   hooks:
