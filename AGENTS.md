@@ -23,18 +23,18 @@ The project compiles to WASM using `cargo`. The `build-wasm.sh` script performs 
 
 The script **hardcodes** these tool paths to `~/Dev/web-assembly-binaryen/bin/` and `~/Dev/web-assembly-wabt/bin/`. If you are asked to fix build issues related to these tools, checking/updating these paths in `build-wasm.sh` is a primary step.
 
-### moon Tasks
+## Development Workflow
 
 This repository is set up as a moon repository with the following tasks:
 
-- `moon run :format` - Format code using cargo fmt
-- `moon run :format-check` - Check code formatting
-- `moon run :lint` - Lint code using cargo clippy
-- `moon run :build` - Build the project for development
-- `moon run :build-wasm` - Build the WASM plugin (requires wasm32-wasip1 target)
-- `moon run :test` - Run all tests
-- `moon run :check` - Run format-check, lint, and test
-- `moon run :clean` - Clean build artifacts
+- `moon run :format` - Format code using cargo fmt.
+- `moon run :format-check` - Check code formatting.
+- `moon run :lint` - Lint code using cargo clippy.
+- `moon run :build` - Build the project for development.
+- `moon run :build-wasm` - Build the WASM plugin (requires `wasm32-wasip1` target).
+- `moon run :test` - Run all tests.
+- `moon run :check` - Run format-check, lint, and test.
+- `moon run :clean` - Clean build artifacts.
 
 ### proto Integration
 
@@ -62,3 +62,7 @@ Integration tests using `proto_pdk_test_utils` often require a mock proto enviro
 
 - Follow standard Rust formatting (`cargo fmt` or `moon run :format`).
 - Ensure `cargo clippy` passes (`moon run :lint`).
+
+## Future Work
+
+- **FVM Support**: There is a TODO in `src/proto.rs` to add support for FVM (Flutter Version Management) configuration files.
