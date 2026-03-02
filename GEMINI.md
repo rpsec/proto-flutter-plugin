@@ -43,7 +43,7 @@ The project uses [moon](https://moonrepo.dev) as a task runner.
 - **Limitations**:
   - Does not support `flutter channel` command (use `proto install` instead).
   - Does not support `flutter upgrade/downgrade` (managed via `proto`).
-  - Windows support currently forces `.tar.xz` or `.zip` based on platform defaults.
+  - The plugin dynamically constructs download URLs using the `archive` field from Flutter release metadata, ensuring the correct file extension (e.g., `.zip` or `.tar.xz`) is used for each platform.
 - **Testing**: Integration tests are located in `tests/` and use a sandbox environment provided by `proto_pdk_test_utils`.
 - **Hooks**: A git pre-push hook is configured (via `moon sync hooks`) to run linting and tests.
 
