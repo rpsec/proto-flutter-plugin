@@ -65,4 +65,5 @@ chmod +x ~/.proto/bin/proto-shim
 1.  Update the version in `Cargo.toml`.
 2.  Update `CHANGELOG.md`.
 3.  Build the WASM binary.
-4.  Commit and push changes.
+4.  Run `moon run :format-check`, `moon run :lint`, and `moon run :test` to verify the code.
+5.  Commit and push changes.

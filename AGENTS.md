@@ -57,6 +57,7 @@ Integration tests using `proto_pdk_test_utils` often require a mock proto enviro
 ## Known Issues / Context
 
 - **Upgrades**: The plugin does not support `flutter upgrade`. Version management should be done via `proto`.
+- **Archives**: The plugin dynamically constructs download URLs using the `archive` field from Flutter release metadata, ensuring the correct file extension (e.g., `.zip` or `.tar.xz`) is used for each platform.
 
 ## Code Style
 
