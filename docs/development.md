@@ -60,6 +60,8 @@ touch ~/.proto/bin/proto-shim
 chmod +x ~/.proto/bin/proto-shim
 ```
 
+If you encounter test timeouts (e.g., in `download_test.rs` or other network-dependent tests), be aware that these are known to occur in restricted CI/development environments without internet access.
+
 ## Release Process
 
 1.  Update the version in `Cargo.toml`.
