@@ -92,7 +92,7 @@ pub fn download_prebuilt(
 
     if version_spec.is_canary() {
         return Err(plugin_err!(PluginError::Message(format!(
-            "{NAME} does not support canary/nightly versions. Plase use `proto install flutter beta` instead"
+            "{NAME} does not support canary/nightly versions. Please use `proto install flutter beta` instead"
         ))));
     }
 
@@ -209,7 +209,7 @@ pub fn pre_run(Json(input): Json<RunHook>) -> FnResult<Json<RunHookResult>> {
 
     match args[0].as_str() {
         "channel" if args.len() == 2 => Err(plugin_err!(PluginError::Message(format!(
-            "{NAME} does not support channel switching with proto. Plase use `proto install flutter beta` or check it out with git manualy instead. See https://docs.flutter.dev/release/archive#main-channel"
+            "{NAME} does not support channel switching with proto. Please use `proto install flutter beta` or check it out with git manually instead. See https://docs.flutter.dev/release/archive#main-channel"
         )))),
         _ => Ok(Json(result))
     }

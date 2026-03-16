@@ -51,6 +51,9 @@ This ensures code quality by running `:lint` and `:test` tasks before each push.
 
 ## Environment Constraints
 
+- **Platform Support**: The plugin officially supports Linux (x64), macOS (x64, Arm64), and Windows (x64) architectures.
+- **Future Work**: Future work for the project includes adding support for FVM (Flutter Version Management).
+
 - **Restricted Internet**: The development environment has restricted internet access. This prevents `cargo` from downloading or updating dependencies during `build`, `test`, or `clippy` runs.
 - **Missing CLI Tools**: The `moon` and `proto` CLI tools are not available in the environment's `PATH`. Use `cargo` or specific shell scripts for tasks directly.
 
