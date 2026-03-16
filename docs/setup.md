@@ -45,6 +45,13 @@ environment:
 
 When you run `proto install` or `proto use` in a directory with this file, proto will attempt to use a version matching the constraint.
 
+## Platform Support
+
+The plugin officially supports the following architectures:
+- Linux (x64)
+- macOS (x64, Arm64)
+- Windows (x64)
+
 ## Limitations
 
 - **Channel Switching**: Built-in channel switching (`flutter channel`) is not supported. Use `proto install flutter beta` to install a beta version.
