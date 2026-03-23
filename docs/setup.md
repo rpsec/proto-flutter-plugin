@@ -6,13 +6,13 @@ Add the plugin to your `.prototools` file:
 
 ```toml
 [plugins]
-flutter = "github://rpsec/proto-flutter-plugin"
+flutter = "github://rpsec/proto-flutter-plugin@v0.2.0"
 ```
 
 Or install via command line:
 
 ```sh
-proto plugin add flutter github://rpsec/proto-flutter-plugin
+proto plugin add flutter github://rpsec/proto-flutter-plugin@v0.2.0
 ```
 
 ## Configuration

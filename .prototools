@@ -4,4 +4,4 @@
 rust = "1.92.0"
 
 [plugins.tools]
-flutter = "github://rpsec/proto-flutter-plugin@v0.0.1"
+flutter = "github://rpsec/proto-flutter-plugin@v0.2.0"
