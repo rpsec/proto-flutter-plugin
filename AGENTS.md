@@ -54,6 +54,10 @@ This ensures code quality by running `:lint` and `:test` tasks before each push.
 - **Restricted Internet**: The development environment has restricted internet access. This prevents `cargo` from downloading or updating dependencies during `build`, `test`, or `clippy` runs.
 - **Missing CLI Tools**: The `moon` and `proto` CLI tools are not available in the environment's `PATH`. Use `cargo` or specific shell scripts for tasks directly.
 
+## Versioning
+
+The plugin is currently at version `0.2.0`. Ensure version numbers in `README.md`, `docs/setup.md`, `Cargo.toml`, and `.prototools` are kept in sync when publishing a new release.
+
 ## PR Templates
 
 - PRs for **code health improvements** must follow this template:
