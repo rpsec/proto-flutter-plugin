@@ -21,6 +21,7 @@ This plugin allows you to manage Flutter SDK versions using `proto`.
 - **Aliases**: Supports `stable`, `beta`, and `latest` aliases.
 - **Version Detection**: Detects required Flutter version from `pubspec.yaml`.
 - **Pre-built Binaries**: Downloads pre-built Flutter SDKs from Google's infrastructure (or a configured mirror).
+- **Executables**: Provides both `flutter` and `dart` commands.
 
 ### Limitations
 
@@ -43,6 +44,7 @@ This plugin allows you to manage Flutter SDK versions using `proto`.
 3.  **Use Flutter**:
     ```sh
     flutter --version
+    dart --version
     ```
 
 ## Development
