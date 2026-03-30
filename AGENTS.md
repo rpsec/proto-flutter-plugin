@@ -36,6 +36,8 @@ This repository is set up as a moon repository with the following tasks:
 - `moon run :check` - Run format-check, lint, and test
 - `moon run :clean` - Clean build artifacts
 
+*Note: If `moon` is unavailable, use standard `cargo` equivalents (e.g., `cargo test` for `:test`, `cargo fmt --all -- --check` for `:format-check`, `cargo clippy --all-targets --all-features -- -D warnings` for `:lint`, etc.).*
+
 ### proto Integration
 
 The repository uses proto to manage Rust toolchain versions. The Rust version is specified in `.prototools` and is managed by moon through `.moon/toolchain.yml`.

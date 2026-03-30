@@ -22,9 +22,11 @@ If you find a bug or have a feature request, please open an issue on the GitHub 
 
 1.  **Fork the repository** and create a new branch for your feature or fix.
 2.  **Make your changes**. Ensure your code follows the existing style and conventions.
-3.  **Run tests**. Run `moon run :test` to ensure all tests pass.
-4.  **Format and Lint**. Run `moon run :format` and `moon run :lint` to check for code style issues.
+3.  **Run tests**. Run `moon run :test` (or `cargo test`) to ensure all tests pass.
+4.  **Format and Lint**. Run `moon run :format` (or `cargo fmt`) and `moon run :lint` (or `cargo clippy`) to check for code style issues.
 5.  **Submit a Pull Request**. Provide a clear description of your changes and reference any related issues.
+
+> **Note:** See the [Development Guide](./docs/development.md) for a comprehensive breakdown of alternative `cargo` commands in restricted environments missing `moon`.
 
 ## Code of Conduct
 

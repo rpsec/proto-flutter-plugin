@@ -28,6 +28,8 @@ For local development and testing, you can use `moon` to build the WASM binary w
 moon run :build-wasm
 ```
 
+*Note: In restricted environments where `moon` is not available, use `cargo build --target wasm32-wasip1` directly.*
+
 The artifact will be at `target/wasm32-wasip1/release/flutter_tool.wasm`.
 
 ### Release Build
@@ -40,14 +42,38 @@ bash build-wasm.sh flutter_tool
 
 The output WASM file will be located in `target/wasm32-wasip1/flutter_tool.wasm`.
 
+## Code Quality and Linting
+
+If `moon` is available, run checks with:
+
+```sh
+moon run :format-check
+moon run :lint
+```
+
+*Note: In restricted environments where `moon` is not available, use:*
+
+```sh
+cargo fmt --all -- --check
+cargo clippy --all-targets --all-features -- -D warnings
+```
+
 ## Testing
 
 The project uses `proto_pdk_test_utils` for integration testing.
 
 ### Running Tests
 
+If `moon` is available, run:
+
 ```sh
-cargo test
+moon run :test
+```
+
+Alternatively (or if `moon` is missing), run:
+
+```sh
+cargo test --all-features
 ```
 
 ### Troubleshooting Tests
