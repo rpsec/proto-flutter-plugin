@@ -60,6 +60,8 @@ This repository is set up as a [moon](https://moonrepo.dev) repository for task 
 - **Run all checks**: `moon run :check` (format-check + lint + test)
 - **Clean**: `moon run :clean`
 
+> **Note:** If `moon` is not available in your environment, use standard `cargo` equivalents (e.g., `cargo build --target wasm32-wasip1` for `:build-wasm`, `cargo test` for `:test`, etc.). See the [Development Guide](./docs/development.md) for details.
+
 ### Requirements
 
 - [proto](https://moonrepo.dev/proto) - Tool version manager
