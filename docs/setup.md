@@ -1,5 +1,7 @@
 # Setup and Configuration
 
+Requires `proto` version `0.47.0` or higher.
+
 ## Installation
 
 Add the plugin to your `.prototools` file:
@@ -14,6 +16,8 @@ Or install via command line:
 ```sh
 proto plugin add flutter github://rpsec/proto-flutter-plugin
 ```
+
+This plugin provides both `flutter` and `dart` executables. It officially supports Linux (x64), macOS (x64, Arm64), and Windows (x64) architectures.
 
 ## Configuration
 

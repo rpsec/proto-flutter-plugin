@@ -73,6 +73,7 @@ Integration tests using `proto_pdk_test_utils` often require a mock proto enviro
 ## Known Issues / Context
 
 - **Upgrades**: The plugin does not support `flutter upgrade`. Version management should be done via `proto`.
+- **Future Work**: Adding support for FVM (Flutter Version Management) is planned.
 
 ## Code Style
 
